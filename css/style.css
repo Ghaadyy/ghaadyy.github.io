@@ -1,0 +1,54 @@
+.container {
+  max-width: 2560px;
+}
+
+.top-buffer {
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+}
+
+body {
+  background-color: #fffaf6;
+  font-family: "Source Serif Pro", serif;
+  font-size: 14pt;
+}
+
+p {
+  padding: 0.5em 0;
+}
+
+a {
+  color: #9d6034;
+}
+
+a:hover {
+  color: #492a14;
+  text-decoration: underline;
+}
+
+.responsive-img {
+  width: 250px; /* Fixed width */
+  height: 250px; /* Fixed height */
+  object-fit: cover; /* Cover the container without distorting aspect ratio */
+}
+
+.image-container {
+  width: 250px;
+  height: 250px;
+  background-image: url("images/photo.jpg");
+  background-size: cover; /* Resize the background image to cover the entire container */
+  background-position: center; /* Center the image within the container */
+}
+
+.experience-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style-position: outside;
+  list-style-type: circle;
+}
