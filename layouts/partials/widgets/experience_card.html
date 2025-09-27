@@ -10,7 +10,7 @@
               <ul class="list-unstyled mb-1">
                 {{ range . }}
                 <li class="media mb-1">
-                  <img src="{{ .logo | relURL }}" alt="{{ .name }}" style="width: 18px;" class="mr-1 mt-1">
+                  {{/*  <img src="{{ .logo | relURL }}" alt="{{ .name }}" style="width: 18px;" class="mr-1 mt-1">  */}}
                   <div class="media-body">
                     <div>{{ .name | safeHTML }}</div>
                     <div class="small">{{ .dept | safeHTML }}</div>
@@ -33,7 +33,7 @@
               <ul class="list-unstyled mb-1">
                 {{ range . }}
                 <li class="media mb-1">
-                  <img src="{{ .logo | relURL }}" alt="{{ .name }}" style="width: 18px;" class="mr-1 mt-1">
+                  {{/*  <img src="{{ .logo | relURL }}" alt="{{ .name }}" style="width: 18px;" class="mr-1 mt-1">  */}}
                   <div class="media-body">
                     <div>{{ .name | safeHTML }}</div>
                     <div class="small">{{ .dept | safeHTML }}</div>

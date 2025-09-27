@@ -1,7 +1,7 @@
 ---
 title: "Realtime Object Tracking"
 date: 2024-06-20T00:00:00Z
-selected: true
+selected: false
 cover: /assets/images/covers/cover3.jpg
 description: "A realtime multi-object tracking pipeline with WebRTC streaming and CUDA acceleration."
 languages:

@@ -30,7 +30,7 @@ short_bio: >-
 
 education:
 - name: American University of Beirut (AUB)
-  logo: /assets/images/badges/MIT_Social_circle.png
+  logo: /assets/images/badges/AUB.png
   position: Master of Science in Computer Science
   date: Aug. 2025 - present
 - name: Saint Joseph University of Beirut (USJ)
@@ -38,11 +38,23 @@ education:
   position: Bachelor of Science in Computer Science
   date: Sep. 2022 - Jul. 2025
 
-# experience:
-# - name: Peking University
-#   logo: /assets/images/badges/PKU_red.png
-#   position: Research Intern
-#   date: Sep. 2019 - Jul. 2021
+experience:
+- name: American University of Beirut (AUB)
+  logo: /assets/images/badges/AUB.png
+  position: Graduate Teaching Assistant
+  date: Aug. 2025 - present
+- name: Saint Joseph University of Beirut (USJ)
+  logo: /assets/images/badges/USJ.png
+  position: Research Assistant
+  date: Sep. 2024 - Mar. 2025
+- name: Computer Science Club USJ
+  logo: /assets/images/badges/CSCUSJ.png
+  position: President & Co-Founder
+  date: Sep. 2024 - Aug. 2025
+- name: Murex
+  logo: /assets/images/badges/PKU_red.png
+  position: Software Engineer Intern
+  date: Jun. 2024 - Aug. 2024
 
 awards:
 - name: Graduate Fellowship and Assistantship, AUB
