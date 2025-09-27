@@ -1,0 +1,74 @@
+<div class="row mt-3">
+  <div class="col">
+    <div class="card border-0 shadow-sm bg-white">
+      <div class="card-body p-4">
+        <div class="row" data-masonry='{"percentPosition": true }'>
+          {{ with .Site.Data.profile.education }}
+          <div class="col-md-6">
+            <div class="mx-2 my-1">
+              <h6>Education</h6>
+              <ul class="list-unstyled mb-1">
+                {{ range . }}
+                <li class="media mb-1">
+                  <img src="{{ .logo | relURL }}" alt="{{ .name }}" style="width: 18px;" class="mr-1 mt-1">
+                  <div class="media-body">
+                    <div>{{ .name | safeHTML }}</div>
+                    <div class="small">{{ .dept | safeHTML }}</div>
+                    <div class="small d-flex">
+                      <div>{{ .position | safeHTML }}</div>
+                      <div class="mt-auto ml-auto no-break"><em>{{ .date }}</em></div>
+                    </div>
+                  </div>
+                </li>
+                {{ end }}
+              </ul>
+            </div>
+          </div>
+          {{ end }}
+
+          {{ with .Site.Data.profile.experience }}
+          <div class="col-md-6">
+            <div class="mx-2 my-1">
+              <h6>Experience</h6>
+              <ul class="list-unstyled mb-1">
+                {{ range . }}
+                <li class="media mb-1">
+                  <img src="{{ .logo | relURL }}" alt="{{ .name }}" style="width: 18px;" class="mr-1 mt-1">
+                  <div class="media-body">
+                    <div>{{ .name | safeHTML }}</div>
+                    <div class="small">{{ .dept | safeHTML }}</div>
+                    <div class="small d-flex">
+                      <div>{{ .position | safeHTML }}</div>
+                      <div class="mt-auto ml-auto no-break"><em>{{ .date }}</em></div>
+                    </div>
+                  </div>
+                </li>
+                {{ end }}
+              </ul>
+            </div>
+          </div>
+          {{ end }}
+
+          {{ with .Site.Data.profile.awards }}
+          <div class="col-md-6">
+            <div class="mx-2 my-1">
+              <h6>Honors & Awards</h6>
+              <ul class="list small pl-3 mb-1">
+                {{ range . }}
+                <li>
+                    <div class="d-flex">
+                    <div>{{ .name | safeHTML }}</div>
+                    <div class="ml-auto mt-auto no-break"><em>{{ .date }}</em></div>
+                  </div>
+                </li>
+                {{ end }}
+              </ul>
+            </div>
+          </div>
+          {{ end }}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

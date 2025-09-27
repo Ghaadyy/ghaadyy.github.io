@@ -1,0 +1,25 @@
+{{ define "main" }}
+  {{ $cards := sort (where (where .Site.RegularPages "Section" "showcase") ".Params.show" true) "Date" "desc" }}
+  {{ $byGroup := $cards.GroupByParam "group" }}
+  {{ $noGroup := where $cards "Params.group" "eq" nil }}
+  {{ $groups := slice }}
+  {{ if gt (len $noGroup) 0 }}
+    {{ $groups = $groups | append (dict "Key" "" "Pages" $noGroup) }}
+  {{ end }}
+  {{ if $byGroup }}
+    {{ range $byGroup }}
+      {{ $groups = $groups | append . }}
+    {{ end }}
+  {{ end }}
+
+  {{ range $groups }}
+    {{ if .Key }}<h1>{{ .Key }}</h1>{{ end }}
+    <div class="row grid mb-4">
+      <div class="grid-sizer col-1"></div>
+      {{ range .Pages }}
+        {{ $width := .Params.width | default 3 }}
+        <div class="p-2 grid-item col-md-{{ if gt $width 12 }}12{{ else }}{{ $width }}{{ end }} col-sm-6 col-6"><div class="{{ if .Params.class }}{{ .Params.class }}{{ else }}card border-0 shadow-sm bg-white{{ end }}">{{ .Content }}</div></div>
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}

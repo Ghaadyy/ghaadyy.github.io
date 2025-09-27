@@ -1,0 +1,107 @@
+<div class="row">
+  <div class="col">
+    <div class="card border-0 shadow-sm bg-white">
+      <div class="card-body p-5">
+        <div class="row">
+          <div class="col">
+            {{ with .Site.Data.profile.portrait_url }}
+            <div class="figure float-right ml-4 mb-4 d-none d-md-block">
+              <img src="{{ . | relURL }}" class="figure-img img-fluid img-thumbnail" style="height: 200px;" data-toggle="tooltip" data-placement="top" title="{{ $.Site.Data.profile.portrait_caption }}">
+            </div>
+            {{ end }}
+
+            <div class="d-flex">
+              <div class="h1 font-weight-normal">
+                {{ .Site.Data.profile.primary_name }} <small>{{ .Site.Data.profile.secondary_name }}</small>
+              </div>
+              {{ with .Site.Data.profile.portrait_url }}
+              <div class="ml-auto d-md-none">
+                <a target="_blank" href="{{ . | relURL }}">
+                  <img src="{{ . | relURL }}" class="rounded-circle" style="height: 48px;" alt="Portrait">
+                </a>
+              </div>
+              {{ end }}
+            </div>
+            <div class="text-profile-position">
+              {{ range .Site.Data.profile.positions }}
+                {{ with .logo }}<img src="{{ . | relURL }}" alt="Logo" class="inline-badge"/>{{ end }}
+                {{ .name | safeHTML }}<br/>
+              {{ end }}
+            </div>
+            <div class="text-profile-bio mt-3" {{ if .Site.Data.profile.short_bio_text_justify }}style="text-align: justify;"{{ end }}>
+              {{ .Site.Data.profile.short_bio | safeHTML }}
+            </div>
+            {{ with .Site.Data.profile.cv_link }}
+              <a target="_blank" href="{{ . | relURL }}"><i class="fas fa-file-alt"></i> Curriculum Vitae</a> <br/>
+            {{ end }}
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <a class="pr-3 no-break" href="mailto:{{ .Site.Data.profile.email }}">
+              <i class="fas fa-at"></i> <span class="email-text">{{ replace .Site.Data.profile.email "@" "(at)" }}</span>
+            </a>
+
+            {{ with .Site.Data.profile.gscholar }}
+            {{ $gurl := cond (in . "scholar.google") . (printf "https://scholar.google.com/citations?user=%s" .) }}
+            <a class="pr-3 no-break" target="_blank" href="{{ $gurl }}">
+              <i class="fab fa-google-scholar"></i> Google Scholar
+            </a>
+            {{ end }}
+
+            {{ with .Site.Data.profile.github }}
+            <a class="pr-3 no-break" target="_blank" href="https://github.com/{{ . }}">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+            {{ end }}
+
+            {{ with .Site.Data.profile.wechat_qrcode }}
+            <a class="pr-3 no-break" data-toggle="modal" data-target="#modal-wechat">
+              <i class="fab fa-weixin"></i> WeChat
+            </a>
+            {{ end }}
+
+            {{ with .Site.Data.profile.twitter }}
+            <a class="pr-3 no-break" target="_blank" href="https://twitter.com/{{ . }}">
+              <i class="fab fa-twitter"></i> Twitter
+            </a>
+            {{ end }}
+
+            {{ with .Site.Data.profile.linkedin }}
+            <a class="pr-3 no-break" target="_blank" href="https://www.linkedin.com/in/{{ . }}">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            {{ end }}
+
+            {{ with .Site.Data.profile.orcid }}
+            <a class="pr-3 no-break" target="_blank" href="https://orcid.org/{{ . }}">
+              <i class="fab fa-orcid"></i> ORCID
+            </a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ with .Site.Data.profile.wechat_qrcode }}
+<div class="modal fade" id="modal-wechat" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <img src="{{ . | relURL }}" class="img-fluid">
+      </div>
+  {{ with $.Site.Data.profile.wechat_prompt }}
+      <div class="modal-body p-1">
+        {{ . | safeHTML }}
+      </div>
+      {{ end }}
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

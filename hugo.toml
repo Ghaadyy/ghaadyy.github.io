@@ -1,0 +1,19 @@
+baseURL = "https://ghaadyy.github.io/"
+languageCode = "en-us"
+title = "Ghady Youssef"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML"]
+
+[params]
+  # Custom params if needed later
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "static/assets"

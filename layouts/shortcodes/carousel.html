@@ -1,0 +1,8 @@
+{{/* Hugo shortcode wrapper for the carousel widget.
+     Usage in content: {{< carousel >}} or {{< carousel id="custom" height="300px" >}}
+     It reads images and default height from .Page.Params.images and .Page.Params.height. */}}
+{{ $page := .Page }}
+{{ $id := .Get "id" | default $page.File.UniqueID }}
+{{ $height := .Get "height" | default $page.Params.height }}
+{{ $images := $page.Params.images }}
+{{ partial "widgets/carousel.html" (dict "context" $page "id" $id "images" $images "height" $height) }}

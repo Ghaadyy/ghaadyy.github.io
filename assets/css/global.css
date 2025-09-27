@@ -86,6 +86,13 @@ div.lazy {
     font-size: 100%;
 }
 
+/* Ensure identicon SVGs display properly */
+.bubble-visual-hash {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .email-text {
     font-family: Courier, monospace;
 }

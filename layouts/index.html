@@ -1,0 +1,21 @@
+{{ define "main" }}
+  {{ partial "widgets/profile_card.html" . }}
+  {{ partial "widgets/debug_repo_name.html" . }}
+  
+
+  {{ if .Site.Data.display.homepage.show_experience }}
+    {{ partial "widgets/experience_card.html" . }}
+  {{ end }}
+
+  {{ if .Site.Data.display.homepage.show_news }}
+    {{ $news := where .Site.RegularPages "Section" "news" }}
+    {{ if gt (len $news) 0 }}
+      {{ partial "widgets/news_card.html" (dict "context" . "limit" .Site.Data.display.homepage.num_news) }}
+    {{ end }}
+  {{ end }}
+
+  {{ if .Site.Data.display.homepage.show_selected_publications }}
+    {{ $pubs := sort (where (where .Site.RegularPages "Section" "publications") ".Params.selected" true) "Date" "desc" }}
+    {{ partial "widgets/publication_card.html" (dict "context" . "publications" $pubs "title" "<i class=\"fas fa-star\"></i> Selected Publications") }}
+  {{ end }}
+{{ end }}

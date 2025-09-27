@@ -1,0 +1,30 @@
+<div>
+  <div id="{{ .id }}" class="carousel slide" data-ride="carousel" data-interval="5000">
+    <ol class="carousel-indicators">
+      {{ range $index, $item := .images }}
+      <li data-target="#{{ $.id }}" data-slide-to="{{ $index }}" {{ if eq $index 0 }}class="active"{{ end }}></li>
+      {{ end }}
+    </ol>
+    <div class="carousel-inner" style="height: {{ .height }};">
+      {{ range $index, $item := .images }}
+      <div class="carousel-item {{ if eq $index 0 }}active{{ end }}">
+        {{ if $item.link }}<a href="{{ $item.link }}" target="_blank">{{ end }}
+  <div class="lazy always-load d-block rounded-xl" data-src="{{ $item.src | relURL }}" style="height: {{ $.height }}; background-image: url('{{ $item.src | relURL }}'); background-size: cover; background-position: center;"></div>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>{{ $item.title }}</h5>
+          <p>{{ $item.desc }}</p>
+        </div>
+        {{ if $item.link }}</a>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  <a class="carousel-control-prev" href="#{{ .id }}" role="button" data-target="#{{ .id }}" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+  <a class="carousel-control-next" href="#{{ .id }}" role="button" data-target="#{{ .id }}" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>

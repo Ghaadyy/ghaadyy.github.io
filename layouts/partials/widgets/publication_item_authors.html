@@ -1,0 +1,44 @@
+{{ $page := . }}
+{{ $site := $page.Site }}
+{{ $authors := $page.Params.authors }}
+{{ $hasEq := false }}
+{{ $hasCorr := false }}
+
+{{ range $index, $raw := $authors }}
+  {{ $last := substr $raw (sub (len $raw) 1) 1 }}
+  {{ $last2 := cond (ge (len $raw) 2) (substr $raw (sub (len $raw) 2) 2) "" }}
+  {{ $key := $raw }}
+  {{ $mark := "" }}
+  {{ if or (eq $last2 "*#") (eq $last2 "#*") }}
+    {{ $key = replace (replace $raw "#*" "") "*#" "" }}
+    {{ $mark = "*<sup>#</sup>" }}
+    {{ $hasEq = true }}
+    {{ $hasCorr = true }}
+  {{ else if eq $last "*" }}
+    {{ $key = replace $raw "*" "" }}
+    {{ $mark = "*" }}
+    {{ $hasEq = true }}
+  {{ else if eq $last "#" }}
+    {{ $key = replace $raw "#" "" }}
+    {{ $mark = "<sup>#</sup>" }}
+    {{ $hasCorr = true }}
+  {{ end }}
+
+  {{ $info := index $site.Data.authors $key }}
+  {{ $name := cond (isset $info "name") (index $info "name") $key }}
+  {{ $display := cond (and (isset $info "bold") (eq (index $info "bold") true)) (printf "<strong>%s</strong>" (print $name $mark)) (print $name $mark) }}
+
+  {{ if and $info (isset $info "url") }}
+    <a class="text-body" target="_blank" href="{{ index $info "url" }}">{{ $display | safeHTML }}</a>{{ if lt (add $index 1) (len $authors) }}, {{ end }}
+  {{ else }}
+    <span class="text-body">{{ $display | safeHTML }}{{ if lt (add $index 1) (len $authors) }}, {{ end }}</span>
+  {{ end }}
+{{ end }}
+
+{{ if or $hasEq $hasCorr }}
+<mark>(
+  {{ if $hasEq }}* <i> equal contribution</i>{{ end }}
+  {{ if and $hasEq $hasCorr }}, {{ end }}
+  {{ if $hasCorr }}<sup>#</sup> <i> corresponding author</i>{{ end }}
+)</mark>
+{{ end }}

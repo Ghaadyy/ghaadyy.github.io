@@ -112,11 +112,25 @@ drawBubble = function (svg, bubbleInfo) {
     }
 }
 
-var canvases = document.querySelectorAll(".bubble-visual-hash");
-canvases.forEach(function (canvas) {
-    var hash = canvas.getAttribute("data-bubble-visual-hash");
-    var width = canvas.viewBox.baseVal.width;
-    var height = canvas.viewBox.baseVal.height;
-    var bubbleInfo = createBubbleInfo(createHashGroupForString(hash), 8, width, height);
-    drawBubble(canvas, bubbleInfo);
+function renderBubbleVisualHashes() {
+    var canvases = document.querySelectorAll(".bubble-visual-hash");
+    canvases.forEach(function (canvas) {
+        var hash = canvas.getAttribute("data-bubble-visual-hash");
+        if (!hash) return;
+        var width = canvas.viewBox && canvas.viewBox.baseVal ? canvas.viewBox.baseVal.width : (canvas.getAttribute('width') || 300);
+        var height = canvas.viewBox && canvas.viewBox.baseVal ? canvas.viewBox.baseVal.height : (canvas.getAttribute('height') || 200);
+        var bubbleInfo = createBubbleInfo(createHashGroupForString(hash), 8, width, height);
+        drawBubble(canvas, bubbleInfo);
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderBubbleVisualHashes);
+} else {
+    renderBubbleVisualHashes();
+}
+
+window.addEventListener('load', function() {
+    // Safety re-render after everything is loaded
+    renderBubbleVisualHashes();
 });
