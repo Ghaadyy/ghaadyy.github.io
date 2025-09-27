@@ -18,4 +18,9 @@
     {{ $pubs := sort (where (where .Site.RegularPages "Section" "publications") ".Params.selected" true) "Date" "desc" }}
     {{ partial "widgets/publication_card.html" (dict "context" . "publications" $pubs "title" "<i class=\"fas fa-star\"></i> Selected Publications") }}
   {{ end }}
+
+  {{ if .Site.Data.display.homepage.show_selected_projects }}
+    {{ $projects := sort (where (where .Site.RegularPages "Section" "projects") ".Params.selected" true) "Date" "desc" }}
+    {{ partial "widgets/project_card.html" (dict "context" . "projects" $projects "title" "<i class=\"fas fa-code-branch\"></i> Selected Projects") }}
+  {{ end }}
 {{ end }}

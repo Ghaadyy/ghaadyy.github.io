@@ -1,0 +1,13 @@
+{{ $projects := .projects }}
+<div class="my-3 p-0 bg-white shadow-sm rounded-xl">
+  <h6 class="border-bottom border-gray p-3 mb-0">
+    {{ if .title }}{{ .title | safeHTML }}{{ else }}<i class="fas fa-code-branch"></i> Selected Projects {{ end }}
+    <a href="{{ `/projects` | relURL }}">(view all <i class="fas fa-angle-double-right"></i>)</a>
+  </h6>
+  {{ range first (.limit | default 1000) $projects }}
+    {{ partial "widgets/project_item.html" . }}
+  {{ end }}
+  <h6 class="d-block p-3 mt-0 text-right">
+    <a href="{{ `/projects` | relURL }}">All projects <i class="fas fa-angle-double-right"></i></a>
+  </h6>
+</div>

@@ -1,0 +1,17 @@
+{{ define "main" }}
+  {{ $items := sort (where .Site.RegularPages "Section" "projects") "Date" "desc" }}
+  {{ $groups := $items.GroupByDate "2006" }}
+
+  <div class="row">
+    <div class="col-12 col-lg-10">
+      {{ range $groups }}
+        <h2 class="pt-4" id="year-{{ .Key }}">{{ .Key }}</h2>
+        <div class="my-0 p-0 bg-white shadow-sm rounded-xl">
+          {{ range .Pages }}
+            {{ partial "widgets/project_item.html" . }}
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}
