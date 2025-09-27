@@ -8,7 +8,8 @@ languages:
   - C
   - Embedded Systems
   - Proteus
-github: Hhaadyy/elevator-controller
+github: Ghaadyy/elevator-controller
+docs: https://ghaadyy.github.io/elevator-controller/
 ---
 
 Optional body content for the project page.
