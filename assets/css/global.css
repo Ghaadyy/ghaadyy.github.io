@@ -1,56 +1,130 @@
 @charset "utf-8";
+
+/* Minimalist color palette - Light Mode */
+:root {
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --text-muted: #718096;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f7fafc;
+    --border-light: #e2e8f0;
+    --accent: #d4b896;
+    --shadow: rgba(0, 0, 0, 0.05);
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* Dark Mode - Class-based for toggle */
+[data-theme="dark"] {
+    --text-primary: #f7fafc;
+    --text-secondary: #cbd5e0;
+    --text-muted: #a0aec0;
+    --bg-primary: #1a202c;
+    --bg-secondary: #2d3748;
+    --border-light: #4a5568;
+    --accent: #d4b896;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --navbar-bg: rgba(26, 32, 44, 0.95);
+}
+
+/* Auto Dark Mode (respects system preference when no manual toggle) */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --text-primary: #f7fafc;
+        --text-secondary: #cbd5e0;
+        --text-muted: #a0aec0;
+        --bg-primary: #1a202c;
+        --bg-secondary: #2d3748;
+        --border-light: #4a5568;
+        --accent: #d4b896;
+        --shadow: rgba(0, 0, 0, 0.3);
+        --navbar-bg: rgba(26, 32, 44, 0.95);
+    }
+}
+
 body {
-    font-family: "Lato", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Lato", sans-serif;
     font-weight: 400;
     padding-top: 5.0rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-weight: 700;
+    font-family: "Crimson Text", "Georgia", "Times New Roman", serif;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
 }
 
-.card {
-    border-radius: 0.8rem!important;
+/* Clean, minimal cards - consistent styling across all sections */
+.card,
+.bg-white.shadow-sm.rounded-xl,
+.bg-white.shadow-sm {
+    border-radius: 12px !important;
+    border: 1px solid var(--border-light) !important;
+    background-color: var(--bg-primary) !important;
+    box-shadow: 0 1px 3px var(--shadow) !important;
 }
 
 .card-img-overlay {
-    border-radius: 0.8rem!important;
+    border-radius: 12px !important;
 }
 
 .rounded-xl {
-    border-radius: 0.8rem!important;
+    border-radius: 12px !important;
 }
 
 .rounded-xl-bottom {
-    border-bottom-right-radius: 0.8rem !important;
-    border-bottom-left-radius: 0.8rem !important;
+    border-bottom-right-radius: 12px !important;
+    border-bottom-left-radius: 12px !important;
 }
 
 .rounded-xl-top {
-    border-top-left-radius: 0.8rem !important;
-    border-top-right-radius: 0.8rem !important;
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
 }
 
 
 .text-profile-position {
-    font-weight: 400;
+    font-weight: 500;
+    color: var(--accent);
 }
 
 .text-profile-bio {
-    /* font-family: "Raleway"; */
     font-weight: 400;
+    color: var(--text-secondary);
 }
 
+/* Clean, minimal navbar */
 .navbar {
-    opacity: 0.95;
+    background-color: var(--navbar-bg) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 1px 3px var(--shadow);
+}
+
+.navbar-brand {
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text-secondary) !important;
+}
+
+.nav-link:hover {
+    color: var(--accent) !important;
 }
 
 .inline-badge {
     height: 16px;
     vertical-align: -10%;
-    margin-right: 2px;
+    margin-right: 4px;
     line-break: unset;
+    border-radius: 4px;
 }
 
 .no-break {
@@ -60,6 +134,13 @@ h1, h2, h3, h4, h5, h6,
 .cover-image {
     width: 180px;
     max-height: 120px;
+    border-radius: 8px;
+}
+
+/* Clean profile image */
+.figure-img {
+    border-radius: 12px !important;
+    border: 1px solid var(--border-light);
 }
 
 .abstract-body {
@@ -82,8 +163,14 @@ div.lazy {
     min-height: 80px;
 }
 
+/* Clean, minimal badges */
 .badge-publication {
-    font-size: 100%;
+    font-size: 85%;
+    background-color: var(--accent) !important;
+    color: var(--bg-primary) !important;
+    border-radius: 6px !important;
+    padding: 0.25em 0.6em !important;
+    font-weight: 500 !important;
 }
 
 /* Ensure identicon SVGs display properly */
@@ -91,9 +178,228 @@ div.lazy {
     display: block;
     width: 100%;
     height: auto;
+    border-radius: 8px;
 }
 
 .email-text {
-    font-family: Courier, monospace;
+    font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+    color: var(--text-secondary);
+    font-size: 0.95em;
+}
+
+/* Subtle link styling */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+/* Clean social icons */
+.fas, .fab {
+    color: var(--accent);
+}
+
+.fas:hover, .fab:hover {
+    color: var(--text-primary);
+}
+
+/* Minimal HR separator */
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border-light);
+    margin: 2rem 0;
+}
+
+/* Clean button styling */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    background-color: transparent;
+}
+
+.btn:hover {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
+}
+
+/* Improved spacing */
+.card-body {
+    padding: 2rem !important;
+}
+
+/* Consistent card headers across all sections */
+.bg-white h6,
+.card h6 {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 0;
+    font-size: 1.125rem !important; /* Increased from default h6 size */
+}
+
+/* Specific section headers that need larger text */
+.card-body h6,
+.bg-white .p-3 h6,
+.bg-white > h6 {
+    font-size: 1.25rem !important; /* Even larger for main section headers */
+}
+
+/* Consistent borders within cards */
+.border-bottom.border-gray,
+.border-top.border-gray {
+    border-color: var(--border-light) !important;
+}
+
+/* News section specific styling */
+.bg-white .media {
+    padding: 0.75rem 0;
+}
+
+.bg-white .media .text-muted {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+}
+
+/* Publication and project item styling consistency */
+.bg-white .px-3 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+}
+
+.bg-white .p-3 {
+    padding: 1.5rem !important;
+}
+
+/* Ensure all card content has proper spacing */
+.bg-white.rounded-xl .px-3.pb-1 {
+    padding-bottom: 1rem !important;
+}
+
+/* Education and Experience section headers within profile card */
+.card-body .mx-2 h6 {
+    font-size: 1.2rem !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Make sure all card links use accent color */
+.bg-white a,
+.card a {
+    color: var(--accent);
+}
+
+.bg-white a:hover,
+.card a:hover {
+    color: var(--text-primary);
+}
+
+/* Dark mode toggle button */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border-light);
+    color: var(--text-secondary);
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent);
+}
+
+/* Dark mode specific adjustments for auto mode */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .figure-img,
+    :root:not([data-theme="light"]) .cover-image,
+    :root:not([data-theme="light"]) .inline-badge {
+        opacity: 0.9;
+    }
+    
+    :root:not([data-theme="light"]) .email-text {
+        color: var(--accent);
+    }
+    
+    :root:not([data-theme="light"]) .bg-white {
+        background-color: var(--bg-primary) !important;
+    }
+    
+    :root:not([data-theme="light"]) .bg-light {
+        background-color: var(--bg-secondary) !important;
+    }
+    
+    :root:not([data-theme="light"]) .text-muted {
+        color: var(--text-muted) !important;
+    }
+    
+    :root:not([data-theme="light"]) .shadow-sm {
+        box-shadow: 0 1px 3px var(--shadow) !important;
+    }
+}
+
+/* Apply dark mode styles when manually toggled */
+[data-theme="dark"] .figure-img,
+[data-theme="dark"] .cover-image,
+[data-theme="dark"] .inline-badge {
+    opacity: 0.9;
+}
+
+[data-theme="dark"] .email-text {
+    color: var(--accent);
+}
+
+[data-theme="dark"] .bg-white {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] .bg-light {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .text-muted {
+    color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .shadow-sm {
+    box-shadow: 0 1px 3px var(--shadow) !important;
+}
+
+/* Fix author names and publication text in dark mode */
+[data-theme="dark"] .text-body {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] mark {
+    background-color: var(--accent) !important;
+    color: var(--bg-primary) !important;
+}
+
+/* Auto dark mode fixes for publication authors */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .text-body {
+        color: var(--text-primary) !important;
+    }
+    
+    :root:not([data-theme="light"]) mark {
+        background-color: var(--accent) !important;
+        color: var(--bg-primary) !important;
+    }
 }
 
