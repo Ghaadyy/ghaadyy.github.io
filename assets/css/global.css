@@ -198,13 +198,60 @@ a:hover {
     text-decoration: none;
 }
 
-/* Clean social icons */
-.fas, .fab {
+/* Clean social icons - default state */
+.fas, .fab, .ai {
     color: var(--accent);
+    transition: color 0.3s ease;
 }
 
-.fas:hover, .fab:hover {
-    color: var(--text-primary);
+/* Synchronized hover behavior for links containing icons */
+a:hover,
+a:hover .fas,
+a:hover .fab,
+a:hover .ai,
+a:hover .email-text,
+a:hover span,
+a:hover * {
+    color: var(--text-primary) !important;
+}
+
+/* Ensure all child elements inherit the hover state */
+a {
+    transition: color 0.3s ease;
+}
+
+a * {
+    transition: color 0.3s ease;
+}
+
+/* Specific containers with enhanced hover synchronization */
+.pr-3:hover,
+.pr-3:hover *,
+.no-break:hover,
+.no-break:hover * {
+    color: var(--text-primary) !important;
+}
+
+/* Card header links - synchronized hover */
+.bg-white h6 a:hover,
+.bg-white h6 a:hover *,
+.card h6 a:hover,
+.card h6 a:hover * {
+    color: var(--text-primary) !important;
+}
+
+/* Publication and project links - synchronized hover */
+.abstract-links a:hover,
+.abstract-links a:hover * {
+    color: var(--text-primary) !important;
+}
+
+/* Override any conflicting hover states */
+a:hover .fas,
+a:hover .fab,
+a:hover .ai,
+a:hover .email-text {
+    color: var(--text-primary) !important;
 }
 
 /* Minimal HR separator */
