@@ -1,39 +1,55 @@
 {{ $item := . }}
 <div class="d-none d-md-block">
   <div class="row no-gutters border-bottom border-gray">
-    <div class="col-md-3 col-xl-2 mb-md-0 p-md-3">
-      {{ if $item.Params.cover }}
+    {{ if $item.Params.cover }}
+      <div class="col-md-3 col-xl-2 mb-md-0 p-md-3">
         <img data-src="{{ $item.Params.cover | relURL }}" alt="{{ $item.Title }}" class="lazy w-100 rounded-sm" src="{{ "/assets/images/empty_300x200.png" | relURL }}">
-      {{ else }}
-        <svg class="bubble-visual-hash w-100 rounded-sm" data-bubble-visual-hash="{{ $item.File.UniqueID }}" viewBox="0 0 300 200"></svg>
-      {{ end }}
-    </div>
-    <div class="col-md-9 col-xl-10 p-3 pl-md-0">
-      <h5 class="mt-0 mb-1 font-weight-normal">{{ $item.Title }}</h5>
-      <p class="mt-0 mb-0 small">{{ partial "widgets/publication_item_authors.html" $item }}</p>
-  <p class="mt-0 mb-0 small">{{ $item.Params.pub_pre }}<i>{{ $item.Params.pub }}</i>{{ $item.Params.pub_post }} {{ $item.Params.pub_date }} {{ $item.Params.pub_last | safeHTML }} <span data-semantic-scholar-id="{{ $item.Params.semantic_scholar_id }}"></span></p>
-      <p class="mt-0 mb-0 small text-muted">{{ $item.Params.abstract }}</p>
-      <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
-        {{ range $k, $v := $item.Params.links }}
-          {{ if (isset $v "url") }}
-            <a target="{{ index $v "target" }}" href="{{ index $v "url" }}">[{{ $k }}]</a>
-          {{ else }}
-            <a target="_blank" href="{{ $v }}">[{{ $k }}]</a>
+      </div>
+      <div class="col-md-9 col-xl-10 p-3 pl-md-0">
+        <h5 class="mt-0 mb-1 font-weight-normal">{{ $item.Title }}</h5>
+        <p class="mt-0 mb-0 small">{{ partial "widgets/publication_item_authors.html" $item }}</p>
+        <p class="mt-0 mb-0 small">{{ $item.Params.pub_pre }}<i>{{ $item.Params.pub }}</i>{{ $item.Params.pub_post }} {{ $item.Params.pub_date }} {{ $item.Params.pub_last | safeHTML }} <span data-semantic-scholar-id="{{ $item.Params.semantic_scholar_id }}"></span></p>
+        <p class="mt-0 mb-0 small text-muted">{{ $item.Params.abstract }}</p>
+        <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
+          {{ range $k, $v := $item.Params.links }}
+            {{ if (isset $v "url") }}
+              <a target="{{ index $v "target" }}" href="{{ index $v "url" }}">[{{ $k }}]</a>
+            {{ else }}
+              <a target="_blank" href="{{ $v }}">[{{ $k }}]</a>
+            {{ end }}
           {{ end }}
-        {{ end }}
-      </p>
-    </div>
+        </p>
+      </div>
+    {{ else }}
+      <div class="col-12 p-3">
+        <h5 class="mt-0 mb-1 font-weight-normal">{{ $item.Title }}</h5>
+        <p class="mt-0 mb-0 small">{{ partial "widgets/publication_item_authors.html" $item }}</p>
+        <p class="mt-0 mb-0 small">{{ $item.Params.pub_pre }}<i>{{ $item.Params.pub }}</i>{{ $item.Params.pub_post }} {{ $item.Params.pub_date }} {{ $item.Params.pub_last | safeHTML }} <span data-semantic-scholar-id="{{ $item.Params.semantic_scholar_id }}"></span></p>
+        <p class="mt-0 mb-0 small text-muted">{{ $item.Params.abstract }}</p>
+        <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
+          {{ range $k, $v := $item.Params.links }}
+            {{ if (isset $v "url") }}
+              <a target="{{ index $v "target" }}" href="{{ index $v "url" }}">[{{ $k }}]</a>
+            {{ else }}
+              <a target="_blank" href="{{ $v }}">[{{ $k }}]</a>
+            {{ end }}
+          {{ end }}
+        </p>
+      </div>
+    {{ end }}
   </div>
+  
 </div>
 
-<div class="row no-gutters d-md-none border-bottom border-gray {{ if $item.Params.cover }}lazy{{ end }}" data-src="{{ $item.Params.cover | relURL }}">
+{{ if $item.Params.cover }}
+<div class="row no-gutters d-md-none border-bottom border-gray lazy" data-src="{{ $item.Params.cover | relURL }}">
   <div class="w-100" style="background-color: rgba(255,255,255,0.9);">
     <div class="d-flex align-items-start flex-column py-3 px-4">
       <div class="mb-auto"></div>
       <div>
         <h5 class="mt-0 mb-1 font-weight-normal">{{ $item.Title }}</h5>
         <p class="mt-0 mb-0 small">{{ partial "widgets/publication_item_authors.html" $item }}</p>
-  <p class="mt-0 mb-0 small">{{ $item.Params.pub_pre }}<i>{{ $item.Params.pub }}</i>{{ $item.Params.pub_post }} {{ $item.Params.pub_date }} {{ $item.Params.pub_last | safeHTML }} <span data-semantic-scholar-id="{{ $item.Params.semantic_scholar_id }}"></span></p>
+        <p class="mt-0 mb-0 small">{{ $item.Params.pub_pre }}<i>{{ $item.Params.pub }}</i>{{ $item.Params.pub_post }} {{ $item.Params.pub_date }} {{ $item.Params.pub_last | safeHTML }} <span data-semantic-scholar-id="{{ $item.Params.semantic_scholar_id }}"></span></p>
         <p class="mt-0 mb-0 small text-muted">{{ $item.Params.abstract }}</p>
         <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
           {{ range $k, $v := $item.Params.links }}
@@ -48,3 +64,22 @@
     </div>
   </div>
 </div>
+{{ else }}
+<div class="row no-gutters d-md-none border-bottom border-gray">
+  <div class="col-12 p-3">
+    <h5 class="mt-0 mb-1 font-weight-normal">{{ $item.Title }}</h5>
+    <p class="mt-0 mb-0 small">{{ partial "widgets/publication_item_authors.html" $item }}</p>
+    <p class="mt-0 mb-0 small">{{ $item.Params.pub_pre }}<i>{{ $item.Params.pub }}</i>{{ $item.Params.pub_post }} {{ $item.Params.pub_date }} {{ $item.Params.pub_last | safeHTML }} <span data-semantic-scholar-id="{{ $item.Params.semantic_scholar_id }}"></span></p>
+    <p class="mt-0 mb-0 small text-muted">{{ $item.Params.abstract }}</p>
+    <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
+      {{ range $k, $v := $item.Params.links }}
+        {{ if (isset $v "url") }}
+          <a target="{{ index $v "target" }}" href="{{ index $v "url" }}">[{{ $k }}]</a>
+        {{ else }}
+          <a target="_blank" href="{{ $v }}">[{{ $k }}]</a>
+        {{ end }}
+      {{ end }}
+    </p>
+  </div>
+</div>
+{{ end }}

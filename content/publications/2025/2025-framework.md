@@ -7,7 +7,6 @@ pub_last: ' <span class="badge badge-pill badge-publication badge-success">Accep
 pub_date: "2025"
 abstract: >-
   Modern web applications feature dynamic and visually complex interfaces that challenge the reliability and maintainability of traditional automated testing frameworks. These conventional approaches often rely on fixed document object model locators, such as XPath or CSS selectors, which are highly sensitive to minor user interface changes. To address these challenges, we propose a unified and lightweight framework that combines a domain-specific restricted natural language for intuitive, high-level test specification, with a vision-language module capable of real-time user interface element detection directly from live screenshots. 
-# cover: /assets/images/covers/cover3.jpg
 authors:
   - Maroun Ayli
   - Youssef Bakouny
