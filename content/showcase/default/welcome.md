@@ -8,7 +8,7 @@ date: 2024-01-12T00:01:00+08:00
     <h2>Welcome to Showcase!</h2>
     <hr />
     <p>
-        This page contains selected photos captured through my camera's lens, showing 
+        This page features some of my photographs along with glimpses of other hobbies and activities.
     </p>
     <!-- <p>
         You can create a new showcase item by creating a new file in the <code>content/showcase</code> folder. It gives you the highest flexibility to customize the item using any HTML code.
