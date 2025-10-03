@@ -2,6 +2,11 @@
   {{ $pubs := sort (where .Site.RegularPages "Section" "publications") "Date" "desc" }}
   {{ $groups := $pubs.GroupByDate "2006" }}
 
+  <div class="bg-white shadow-sm border-bottom border-gray bd-callout bd-callout-info">
+      <i class="fas fa-info-circle"></i> 
+      This page presently lists publications to which contributions have been made, but does not include any authored publications.
+  </div>
+  
   <div class="row">
     <div class="col-12 col-lg-10">
       {{ range $groups }}

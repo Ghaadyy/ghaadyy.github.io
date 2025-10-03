@@ -8,6 +8,10 @@ languages:
   - React Native
   - JavaScript
 github: Posenega/Zoey
+authors:
+  - Theo Khalil*
+  - Ghady Youssef*
+  - Selim Ellieh*
 # website: https://example.com/tracker
 # docs: https://example.com/tracker/docs
 # links:

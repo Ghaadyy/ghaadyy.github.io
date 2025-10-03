@@ -23,9 +23,9 @@
         </p>
         {{ end }}
         <p class="small pb-0 mb-0 lh-125 text-muted">
-          {{ with $item.Params.github }}<a target="_blank" href="https://github.com/{{ . }}">[GitHub]</a> {{ end }}
+          {{ with $item.Params.github }}<a target="_blank" href="https://github.com/{{ . }}">[code]</a> {{ end }}
           {{ with $item.Params.website }}<a target="_blank" href="{{ . }}">[Website]</a> {{ end }}
-          {{ with $item.Params.docs }}<a target="_blank" href="{{ . }}">[Docs]</a> {{ end }}
+          {{ with $item.Params.docs }}<a target="_blank" href="{{ . }}">[docs]</a> {{ end }}
           {{ range $k, $v := $item.Params.links }}
             {{ if (isset $v "url") }}
               <a target="{{ index $v "target" }}" href="{{ index $v "url" }}">[{{ $k }}]</a>
@@ -59,9 +59,9 @@
         </p>
         {{ end }}
         <p class="small pb-0 mb-0 lh-125 text-muted">
-          {{ with $item.Params.github }}<a target="_blank" href="https://github.com/{{ . }}">[GitHub]</a> {{ end }}
+          {{ with $item.Params.github }}<a target="_blank" href="https://github.com/{{ . }}">[code]</a> {{ end }}
           {{ with $item.Params.website }}<a target="_blank" href="{{ . }}">[Website]</a> {{ end }}
-          {{ with $item.Params.docs }}<a target="_blank" href="{{ . }}">[Docs]</a> {{ end }}
+          {{ with $item.Params.docs }}<a target="_blank" href="{{ . }}">[docs]</a> {{ end }}
           {{ range $k, $v := $item.Params.links }}
             {{ if (isset $v "url") }}
               <a target="{{ index $v "target" }}" href="{{ index $v "url" }}">[{{ $k }}]</a>
@@ -91,9 +91,9 @@
     </p>
     {{ end }}
     <p class="small pb-0 mb-0 lh-125 text-muted">
-      {{ with $item.Params.github }}<a target="_blank" href="https://github.com/{{ . }}">[GitHub]</a> {{ end }}
+      {{ with $item.Params.github }}<a target="_blank" href="https://github.com/{{ . }}">[code]</a> {{ end }}
       {{ with $item.Params.website }}<a target="_blank" href="{{ . }}">[Website]</a> {{ end }}
-      {{ with $item.Params.docs }}<a target="_blank" href="{{ . }}">[Docs]</a> {{ end }}
+      {{ with $item.Params.docs }}<a target="_blank" href="{{ . }}">[docs]</a> {{ end }}
       {{ range $k, $v := $item.Params.links }}
         {{ if (isset $v "url") }}
           <a target="{{ index $v "target" }}" href="{{ index $v "url" }}">[{{ $k }}]</a>
