@@ -7,6 +7,9 @@ description: "Developed a single-player PvE game in Unity where a survivor fight
 languages:
   - C#
   - Unity
+authors:
+  - Antoine Karam*
+  - Ghady Youssef*
 github: Ghaadyy/lost-survivor
 ---
 

@@ -8,6 +8,9 @@ languages:
   - C
   - Embedded Systems
   - Proteus
+authors:
+  - Antoine Karam*
+  - Ghady Youssef*
 github: Ghaadyy/elevator-controller
 docs: https://ghaadyy.github.io/elevator-controller/
 links:

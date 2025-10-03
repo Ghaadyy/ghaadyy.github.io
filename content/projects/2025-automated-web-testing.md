@@ -9,6 +9,9 @@ languages:
   - C#
   - Selenium
   - Python
+authors:
+  - Antoine Karam*
+  - Ghady Youssef*
 links:
   Platform: https://github.com/Ghaadyy/testing-platform
   Compiler: https://github.com/Ghaadyy/restricted-nl

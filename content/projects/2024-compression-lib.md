@@ -7,6 +7,9 @@ description: "A realtime multi-object tracking pipeline with WebRTC streaming an
 languages:
   - C++
   - CMake
+authors:
+  - Antoine Karam*
+  - Ghady Youssef*
 github: Ghaadyy/compression-library
 ---
 

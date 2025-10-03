@@ -7,6 +7,9 @@ description: "A platform that simplifies attendance taking for students aswell a
 languages:
   - React.js
   - C#
+authors:
+  - Antoine Karam*
+  - Ghady Youssef*
 github: Ghaadyy/attendance-manager
 ---
 
