@@ -119,6 +119,28 @@ h1, h2, h3, h4, h5, h6,
     color: var(--accent) !important;
 }
 
+/* Consistent menu button (navbar toggler) in light/dark */
+.navbar-toggler {
+    border: 1px solid var(--border-light) !important;
+    color: var(--text-secondary) !important;
+    background: transparent !important;
+    border-radius: 8px !important;
+}
+.navbar-toggler:hover {
+    color: var(--accent) !important;
+    border-color: var(--accent) !important;
+}
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--accent) !important;
+}
+/* Let the icon inherit the button color for consistency */
+.navbar-toggler .fas,
+.navbar-toggler .fab,
+.navbar-toggler .ai {
+    color: currentColor !important;
+}
+
 .inline-badge {
     height: 16px;
     vertical-align: -10%;
