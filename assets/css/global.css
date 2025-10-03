@@ -450,3 +450,11 @@ hr {
     }
 }
 
+/* Hide the bottom border on the last list item on Projects/Publications list pages */
+.projects-list > .list-item:last-child .row.border-bottom.border-gray,
+.projects-list > .list-item:last-child,
+.publications-list > .list-item:last-child .row.border-bottom.border-gray,
+.publications-list > .list-item:last-child {
+    border-bottom: none !important;
+}
+

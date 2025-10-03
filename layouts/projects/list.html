@@ -6,9 +6,11 @@
     <div class="col-12 col-lg-10">
       {{ range $groups }}
         <h2 class="pt-4" id="year-{{ .Key }}">{{ .Key }}</h2>
-        <div class="my-0 p-0 bg-white shadow-sm rounded-xl">
+        <div class="my-0 p-0 bg-white shadow-sm rounded-xl projects-list">
           {{ range .Pages }}
-            {{ partial "widgets/project_item.html" . }}
+            <div class="list-item">
+              {{ partial "widgets/project_item.html" . }}
+            </div>
           {{ end }}
         </div>
       {{ end }}
