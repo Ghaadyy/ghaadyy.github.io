@@ -39,9 +39,11 @@
         <hr />
         <div class="row">
           <div class="col">
+            {{ if .Site.Data.profile.email }}
             <a class="pr-3 no-break" href="mailto:{{ .Site.Data.profile.email }}">
               <i class="fas fa-at"></i> <span class="email-text">{{ replace .Site.Data.profile.email "@" "(at)" }}</span>
             </a>
+            {{ end }}
 
             {{ with .Site.Data.profile.gscholar }}
             {{ $gurl := cond (in . "scholar.google") . (printf "https://scholar.google.com/citations?user=%s" .) }}
