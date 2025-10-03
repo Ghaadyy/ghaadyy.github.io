@@ -4,7 +4,7 @@ date: 2024-04-16T00:00:00Z
 selected: false
 # cover: /assets/images/covers/cover3.jpg
 description: "Developed a feature-rich food delivery app using MVVM architecture with JWT authentication, restaurant browsing, order tracking, driver ratings, Room for local storage, Jetpack Compose UI, and Osmdroid for maps."
-languages:
+technologies:
   - Kotlin
   - Android
   - C#

@@ -5,7 +5,7 @@ selected: true
 # cover: /assets/images/covers/cover3.jpg
 description: "Designed and implemented a web-based testing platform with a UI/code editor, real-time execution management, and a restricted natural language compiler powered by a Vision-Language Model to generate Selenium scripts."
 badges: ' <span class="badge badge-pill badge-publication badge-success">Bachelor Research Project</span>'
-languages:
+technologies:
   - React.js
   - C#
   - Selenium
