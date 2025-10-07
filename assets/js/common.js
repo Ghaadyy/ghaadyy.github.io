@@ -96,3 +96,20 @@ $(function () {
         });
     });
 })
+
+// Function to toggle abstract read more/less
+function toggleAbstract(button) {
+    const container = button.closest('.abstract-container');
+    const shortText = container.querySelector('.abstract-short');
+    const fullText = container.querySelector('.abstract-full');
+    
+    if (shortText.style.display === 'none') {
+        // Currently showing full text, switch to short
+        shortText.style.display = 'block';
+        fullText.style.display = 'none';
+    } else {
+        // Currently showing short text, switch to full
+        shortText.style.display = 'none';
+        fullText.style.display = 'block';
+    }
+}
