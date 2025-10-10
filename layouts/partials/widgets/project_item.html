@@ -15,7 +15,16 @@
         {{ end }}
   <p class="mt-0 mb-0 small text-muted"><i>{{ $item.Date.Format "January 2006" }}</i> {{ with $item.Params.badges }}{{ . | safeHTML }}{{ end }}{{ with $item.Params.badge_html }}{{ . | safeHTML }}{{ end }}{{ with $item.Params.pub_last }}{{ . | safeHTML }}{{ end }}</p>
         {{ $desc := cond (isset $item.Params "description") $item.Params.description $item.Summary }}
-        <p class="mt-0 mb-2 small text-muted">{{ $desc | markdownify | safeHTML }}</p>
+        {{ $descPlain := $desc | markdownify | plainify }}
+        {{ $truncatedDesc := substr $descPlain 0 1000 }}
+        {{ if gt (len $descPlain) 1000 }}
+          <div class="abstract-container">
+            <p class="mt-0 mb-2 small text-muted abstract-short">{{ $truncatedDesc | markdownify | safeHTML }}... <button class="btn-link read-more-btn" onclick="toggleAbstract(this)">Read more</button></p>
+            <p class="mt-0 mb-2 small text-muted abstract-full" style="display: none;">{{ $desc | markdownify | safeHTML }} <button class="btn-link read-less-btn" onclick="toggleAbstract(this)">Read less</button></p>
+          </div>
+        {{ else }}
+          <p class="mt-0 mb-2 small text-muted">{{ $desc | markdownify | safeHTML }}</p>
+        {{ end }}
         {{ with $item.Params.technologies }}
         <p class="mt-0 mb-2 small">
           <span class="text-muted">Technologies:</span>
@@ -51,7 +60,16 @@
         {{ end }}
   <p class="mt-0 mb-0 small text-muted"><i>{{ $item.Date.Format "January 2006" }}</i> {{ with $item.Params.badges }}{{ . | safeHTML }}{{ end }}{{ with $item.Params.badge_html }}{{ . | safeHTML }}{{ end }}{{ with $item.Params.pub_last }}{{ . | safeHTML }}{{ end }}</p>
         {{ $desc := cond (isset $item.Params "description") $item.Params.description $item.Summary }}
-        <p class="mt-0 mb-2 small text-muted">{{ $desc | markdownify | safeHTML }}</p>
+        {{ $descPlain := $desc | markdownify | plainify }}
+        {{ $truncatedDesc := substr $descPlain 0 1000 }}
+        {{ if gt (len $descPlain) 1000 }}
+          <div class="abstract-container">
+            <p class="mt-0 mb-2 small text-muted abstract-short">{{ $truncatedDesc | markdownify | safeHTML }}... <button class="btn-link read-more-btn" onclick="toggleAbstract(this)">Read more</button></p>
+            <p class="mt-0 mb-2 small text-muted abstract-full" style="display: none;">{{ $desc | markdownify | safeHTML }} <button class="btn-link read-less-btn" onclick="toggleAbstract(this)">Read less</button></p>
+          </div>
+        {{ else }}
+          <p class="mt-0 mb-2 small text-muted">{{ $desc | markdownify | safeHTML }}</p>
+        {{ end }}
         {{ with $item.Params.technologies }}
         <p class="mt-0 mb-2 small">
           <span class="text-muted">Technologies:</span>
@@ -83,7 +101,16 @@
     {{ end }}
   <p class="mt-0 mb-0 small text-muted"><i>{{ $item.Date.Format "January 2006" }}</i> {{ with $item.Params.badges }}{{ . | safeHTML }}{{ end }}{{ with $item.Params.badge_html }}{{ . | safeHTML }}{{ end }}{{ with $item.Params.pub_last }}{{ . | safeHTML }}{{ end }}</p>
     {{ $desc := cond (isset $item.Params "description") $item.Params.description $item.Summary }}
-    <p class="mt-0 mb-2 small text-muted">{{ $desc | markdownify | safeHTML }}</p>
+    {{ $descPlain := $desc | markdownify | plainify }}
+    {{ $truncatedDesc := substr $descPlain 0 1000 }}
+    {{ if gt (len $descPlain) 1000 }}
+      <div class="abstract-container">
+        <p class="mt-0 mb-2 small text-muted abstract-short">{{ $truncatedDesc | markdownify | safeHTML }}... <button class="btn-link read-more-btn" onclick="toggleAbstract(this)">Read more</button></p>
+        <p class="mt-0 mb-2 small text-muted abstract-full" style="display: none;">{{ $desc | markdownify | safeHTML }} <button class="btn-link read-less-btn" onclick="toggleAbstract(this)">Read less</button></p>
+      </div>
+    {{ else }}
+      <p class="mt-0 mb-2 small text-muted">{{ $desc | markdownify | safeHTML }}</p>
+    {{ end }}
     {{ with $item.Params.technologies }}
     <p class="mt-0 mb-2 small">
       <span class="text-muted">Technologies:</span>
