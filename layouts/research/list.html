@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $pubs := sort (where .Site.RegularPages "Section" "publications") "Date" "desc" }}
+  {{ $pubs := sort (where .Site.RegularPages "Section" "research") "Date" "desc" }}
   {{ $groups := $pubs.GroupByDate "2006" }}
 
   <div class="bg-white shadow-sm border-bottom border-gray bd-callout bd-callout-info">

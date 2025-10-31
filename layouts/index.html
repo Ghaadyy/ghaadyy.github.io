@@ -8,8 +8,8 @@
   {{ end }}
 
   {{ if .Site.Data.display.homepage.show_selected_publications }}
-    {{ $pubs := sort (where (where .Site.RegularPages "Section" "publications") ".Params.selected" true) "Date" "desc" }}
-    {{ partial "widgets/publication_card.html" (dict "context" . "publications" $pubs "title" "<i class=\"fas fa-star\"></i> Selected Publications") }}
+    {{ $pubs := sort (where (where .Site.RegularPages "Section" "research") ".Params.selected" true) "Date" "desc" }}
+    {{ partial "widgets/publication_card.html" (dict "context" . "publications" $pubs "title" "<i class=\"fas fa-star\"></i> Selected Research Contributions") }}
   {{ end }}
 
   {{ if .Site.Data.display.homepage.show_selected_projects }}
