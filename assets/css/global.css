@@ -598,3 +598,115 @@ hr {
     outline: none;
     color: var(--text-primary);
 }
+
+/* Year Sidebar Styles */
+.year-sidebar {
+    margin-top: 2rem;
+}
+
+.year-sidebar-sticky {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px var(--shadow);
+}
+
+/* Fixed positioning only on desktop */
+@media (min-width: 992px) {
+    .year-sidebar-sticky {
+        position: fixed;
+        top: 6rem;
+        width: calc((100% - 1140px) / 2 + 1140px * 0.25 - 30px);
+        max-width: 285px;
+        max-height: calc(100vh - 7rem);
+        overflow-y: auto;
+    }
+}
+
+/* For medium desktop screens */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .year-sidebar-sticky {
+        width: calc((100% - 960px) / 2 + 960px * 0.25 - 30px);
+        max-width: 240px;
+    }
+}
+
+.year-sidebar-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.year-sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.year-sidebar-list li {
+    margin-bottom: 0.5rem;
+}
+
+.year-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.year-link:hover {
+    background-color: var(--bg-secondary);
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.year-link.active {
+    background-color: var(--bg-secondary);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.year-count {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* Mobile/tablet adjustments */
+@media (max-width: 991.98px) {
+    .year-sidebar {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .year-sidebar-sticky {
+        position: relative !important;
+        top: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .year-sidebar-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .year-sidebar-list li {
+        margin-bottom: 0;
+    }
+    
+    .year-link {
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--border-light);
+    }
+}
