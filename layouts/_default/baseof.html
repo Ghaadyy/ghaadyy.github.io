@@ -14,19 +14,30 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ "/assets/css/global.css" | relURL }}">
   
-  <!-- Prevent theme flicker by applying theme immediately -->
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/android-chrome-512x512.png">
+  
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/assets/icons/apple-touch-icon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon-180x180.png">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  
+  <!-- Safari Pinned Tab -->
+  <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#d4b896">
+  
+  <!-- Theme Color for Mobile Browsers -->
+  <meta name="theme-color" content="#1a202c">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- Force dark mode -->
   <script>
     (function() {
-      function getCurrentTheme() {
-        const storedTheme = localStorage.getItem('theme');
-        if (storedTheme) {
-          return storedTheme;
-        }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      }
-      
-      const theme = getCurrentTheme();
-      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-theme', 'dark');
     })();
   </script>
 </head>
@@ -59,6 +70,5 @@
     <script src="{{ "/assets/js/common.js" | relURL }}"></script>
     <script src="{{ "/assets/js/bubble_visual_hash.js" | relURL }}"></script>
     <script src="{{ "/assets/js/semantic_scholar_citation_count.js" | relURL }}"></script>
-    <script src="{{ "/assets/js/theme-toggle.js" | relURL }}"></script>
 </body>
 </html>

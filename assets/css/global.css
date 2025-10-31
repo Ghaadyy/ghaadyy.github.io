@@ -1,20 +1,7 @@
 @charset "utf-8";
 
-/* Minimalist color palette - Light Mode */
+/* Dark Mode - Always Active */
 :root {
-    --text-primary: #1a202c;
-    --text-secondary: #4a5568;
-    --text-muted: #718096;
-    --bg-primary: #ffffff;
-    --bg-secondary: #f7fafc;
-    --border-light: #e2e8f0;
-    --accent: #d4b896;
-    --shadow: rgba(0, 0, 0, 0.05);
-    --navbar-bg: rgba(255, 255, 255, 0.95);
-}
-
-/* Dark Mode - Class-based for toggle */
-[data-theme="dark"] {
     --text-primary: #f7fafc;
     --text-secondary: #cbd5e0;
     --text-muted: #a0aec0;
@@ -24,21 +11,6 @@
     --accent: #d4b896;
     --shadow: rgba(0, 0, 0, 0.3);
     --navbar-bg: rgba(26, 32, 44, 0.95);
-}
-
-/* Auto Dark Mode (respects system preference when no manual toggle) */
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --text-primary: #f7fafc;
-        --text-secondary: #cbd5e0;
-        --text-muted: #a0aec0;
-        --bg-primary: #1a202c;
-        --bg-secondary: #2d3748;
-        --border-light: #4a5568;
-        --accent: #d4b896;
-        --shadow: rgba(0, 0, 0, 0.3);
-        --navbar-bg: rgba(26, 32, 44, 0.95);
-    }
 }
 
 body {
@@ -119,26 +91,65 @@ h1, h2, h3, h4, h5, h6,
     color: var(--accent) !important;
 }
 
-/* Consistent menu button (navbar toggler) in light/dark */
-.navbar-toggler {
+/* Animated Hamburger Menu */
+.navbar-toggler.hamburger-menu {
     border: 1px solid var(--border-light) !important;
-    color: var(--text-secondary) !important;
     background: transparent !important;
     border-radius: 8px !important;
+    padding: 0.5em !important;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    position: relative;
 }
-.navbar-toggler:hover {
-    color: var(--accent) !important;
+
+.navbar-toggler.hamburger-menu:hover {
     border-color: var(--accent) !important;
 }
-.navbar-toggler:focus {
+
+.navbar-toggler.hamburger-menu:focus {
     outline: none !important;
     box-shadow: 0 0 0 2px var(--accent) !important;
 }
-/* Let the icon inherit the button color for consistency */
-.navbar-toggler .fas,
-.navbar-toggler .fab,
-.navbar-toggler .ai {
-    color: currentColor !important;
+
+/* Hamburger lines */
+.hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-secondary);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.navbar-toggler.hamburger-menu:hover .hamburger-line {
+    background-color: var(--accent);
+}
+
+/* Transform to X when expanded */
+.navbar-toggler.hamburger-menu[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-toggler.hamburger-menu[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.navbar-toggler.hamburger-menu[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Hide hamburger menu on desktop (sm breakpoint and above) */
+@media (min-width: 576px) {
+    .navbar-toggler.hamburger-menu {
+        display: none !important;
+    }
 }
 
 .inline-badge {

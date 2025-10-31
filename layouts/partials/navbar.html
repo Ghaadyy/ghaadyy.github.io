@@ -1,8 +1,10 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top mb-5 shadow-sm">
   <div class="{{ with .Params.container_class }}{{ . }}{{ else }}container-lg{{ end }}">
     <a class="navbar-brand" href="/"><strong>{{ .Site.Data.profile.navbar_name }}</strong></a>
-    <button class="navbar-toggler" style="font-size: 1em; padding: 0.5em;" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-map"></i> Menu
+    <button class="navbar-toggler hamburger-menu" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -12,11 +14,6 @@
             <a class="nav-link" href="{{ .url | relURL }}">{{ .name }}</a>
           </li>
         {{ end }}
-        <li class="nav-item">
-          <button id="theme-toggle" class="theme-toggle ml-2" aria-label="Toggle dark mode" title="Toggle dark mode">
-            <i class="fas fa-moon"></i>
-          </button>
-        </li>
       </ul>
     </div>
   </div>
