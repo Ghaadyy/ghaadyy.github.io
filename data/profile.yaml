@@ -42,21 +42,20 @@ education:
 
 experience:
 - name: American University of Beirut (AUB)
-  logo: /assets/images/badges/AUB.png
   position: Graduate Teaching Assistant
   date: Aug. 2025 - present
 - name: Saint Joseph University of Beirut (USJ)
-  logo: /assets/images/badges/USJ.png
   position: Research Assistant
   date: Sep. 2024 - Mar. 2025
 - name: Computer Science Club USJ
-  logo: /assets/images/badges/CSCUSJ.png
   position: President & Co-Founder
   date: Sep. 2024 - Aug. 2025
 - name: Murex
-  logo: /assets/images/badges/PKU_red.png
   position: Software Engineer Intern
   date: Jun. 2024 - Aug. 2024
+- name: OBSoft
+  position: Software Engineer Intern
+  date: Sep. 2023 - Nov. 2023
 
 awards:
 - name: Graduate Fellowship and Assistantship, AUB
