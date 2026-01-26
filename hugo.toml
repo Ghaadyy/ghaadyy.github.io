@@ -17,3 +17,6 @@ title = "Ghady Youssef"
   [[module.mounts]]
     source = "assets"
     target = "static/assets"
+  [[module.mounts]]
+    source = "content/verification/google5698644fe4b56e15.html"
+    target = "static/google5698644fe4b56e15.html"
