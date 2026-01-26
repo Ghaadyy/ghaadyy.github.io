@@ -18,23 +18,9 @@
       <div class="grid-sizer col-1"></div>
       {{ range .Pages }}
         {{ $width := .Params.width | default 3 }}
-        {{ $widthMd := $width }}
-        {{ if gt $width 12 }}{{ $widthMd = 12 }}{{ end }}
-        {{ $widthSm := 12 }}
-        {{ $widthXs := 12 }}
-        {{ if ge $width 6 }}
-          {{ $widthSm = 12 }}
-          {{ $widthXs = 12 }}
-        {{ else if ge $width 2 }}
-          {{ $widthSm = 6 }}
-          {{ $widthXs = 6 }}
-        {{ else }}
-          {{ $widthSm = mul $width 2 }}
-          {{ if gt $widthSm 12 }}{{ $widthSm = 12 }}{{ end }}
-          {{ $widthXs = mul $width 2 }}
-          {{ if gt $widthXs 12 }}{{ $widthXs = 12 }}{{ end }}
-        {{ end }}
-        <div class="p-2 grid-item col-md-{{ $widthMd }} col-sm-{{ $widthSm }} col-{{ $widthXs }}"><div class="{{ if .Params.class }}{{ .Params.class }}{{ else }}card border-0 shadow-sm bg-white{{ end }}">{{ .Content }}</div></div>
+        {{ $widthXl := $width }}
+        {{ if gt $width 12 }}{{ $widthXl = 12 }}{{ end }}
+        <div class="p-2 grid-item col-xl-{{ $widthXl }} col-lg-6 col-md-6 col-sm-6 col-6"><div class="{{ if .Params.class }}{{ .Params.class }}{{ else }}card border-0 shadow-sm bg-white{{ end }}">{{ .Content }}</div></div>
       {{ end }}
     </div>
   {{ end }}
