@@ -1,0 +1,25 @@
+{{ $item := . }}
+<div class="row no-gutters border-bottom border-gray">
+  <div class="col-12 p-3">
+    <h5 class="mt-0 mb-1 font-weight-normal">{{ $item.Title }}</h5>
+    <p class="mt-0 mb-0 small">
+      <strong>{{ $item.Params.role }}</strong>
+      {{ with $item.Params.location }} &middot; {{ . }}{{ end }}
+    </p>
+    <p class="mt-0 mb-0 small text-muted">{{ $item.Params.event_date }}</p>
+    {{ with $item.Params.description }}
+      <p class="mt-2 mb-0 small text-muted">{{ . }}</p>
+    {{ end }}
+    {{ with $item.Params.links }}
+      <p class="small pb-0 mb-0 lh-125 text-muted">
+        {{ range $k, $v := . }}
+          {{ if (isset $v "url") }}
+            <a target="{{ index $v "target" }}" href="{{ index $v "url" }}">[{{ $k }}]</a>
+          {{ else }}
+            <a target="_blank" href="{{ $v }}">[{{ $k }}]</a>
+          {{ end }}
+        {{ end }}
+      </p>
+    {{ end }}
+  </div>
+</div>

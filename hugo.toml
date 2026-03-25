@@ -1,6 +1,7 @@
 baseURL = "https://ghaadyy.github.io/"
 languageCode = "en-us"
 title = "Ghady Youssef"
+buildFuture = true
 
 [markup]
   [markup.goldmark]

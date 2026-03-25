@@ -1,0 +1,37 @@
+{{ define "main" }}
+  {{ $services := sort (where .Site.RegularPages "Section" "service") "Date" "desc" }}
+  {{ $groups := $services.GroupByDate "2006" }}
+
+  <div class="row">
+    <div class="col-12 col-lg-9 order-2 order-lg-1">
+      {{ range $groups }}
+        <h2 class="pt-4" id="year-{{ .Key }}">{{ .Key }}</h2>
+        <div class="my-0 p-0 bg-white shadow-sm rounded-xl services-list">
+          {{ range .Pages }}
+            <div class="list-item">
+              {{ partial "widgets/service_item.html" . }}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="col-12 col-lg-3 order-1 order-lg-2">
+      <div class="year-sidebar">
+        <div class="year-sidebar-sticky">
+          <h5 class="year-sidebar-title">Filter by Year</h5>
+          <ul class="year-sidebar-list">
+            {{ range $groups }}
+              <li>
+                <a href="#year-{{ .Key }}" class="year-link" data-year="{{ .Key }}">
+                  {{ .Key }}
+                  <span class="year-count">({{ len .Pages }})</span>
+                </a>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{{ end }}
