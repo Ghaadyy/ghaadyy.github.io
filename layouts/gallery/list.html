@@ -1,0 +1,47 @@
+{{ define "main" }}
+  {{ $cards := where (where .Site.RegularPages "Section" "gallery") ".Params.show" true }}
+
+  {{ $orderList := .Site.Data.gallery_order | default (slice) }}
+  {{ $ordered := slice }}
+  {{ if gt (len $orderList) 0 }}
+    {{ range $name := $orderList }}
+      {{ $match := where $cards "File.BaseFileName" $name }}
+      {{ if gt (len $match) 0 }}
+        {{ range $match }}
+          {{ $ordered = $ordered | append . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ range $cards }}
+      {{ $inOrdered := where $ordered "File.BaseFileName" .File.BaseFileName }}
+      {{ if eq (len $inOrdered) 0 }}
+        {{ $ordered = $ordered | append . }}
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    {{ $ordered = $cards }}
+  {{ end }}
+
+  {{ $byGroup := $ordered.GroupByParam "group" }}
+  {{ $noGroup := where $ordered "Params.group" "eq" nil }}
+  {{ $groups := slice }}
+  {{ if gt (len $noGroup) 0 }}
+    {{ $groups = $groups | append (dict "Key" "" "Pages" $noGroup) }}
+  {{ end }}
+  {{ if $byGroup }}
+    {{ range $byGroup }}
+      {{ $groups = $groups | append . }}
+    {{ end }}
+  {{ end }}
+
+  {{ range $groups }}
+    {{ if .Key }}<h1>{{ .Key }}</h1>{{ end }}
+    <div class="row grid mb-4">
+      <div class="grid-sizer col-xl-4 col-md-6 col-12"></div>
+      {{ $colClass := "col-xl-4 col-lg-4 col-md-6 col-12" }}
+      {{ range .Pages }}
+        <div class="p-2 grid-item {{ $colClass }}"><div class="{{ if .Params.class }}{{ .Params.class }}{{ else }}card border-0 shadow-sm bg-white{{ end }}">{{ .Content }}</div></div>
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}

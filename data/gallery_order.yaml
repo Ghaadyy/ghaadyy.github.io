@@ -1,0 +1,22 @@
+# List the base filenames (without extension) in the desired order.
+# Use the exact file base name as it appears in content/gallery/ (spaces allowed).
+# Example:
+# - welcome
+# - trees
+# - cedars
+# Add or reorder entries below to change the showcase order.
+
+- cedarcrypt
+- panel
+- csrp
+- milky-way
+- beach-sign
+- pafos
+- trees
+- sea
+- batroun
+- ski-mzaar
+- cave-des-moutons
+- college-hall
+- aub-med
+- boat-cyprus

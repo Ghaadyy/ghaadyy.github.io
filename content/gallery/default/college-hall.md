@@ -1,7 +1,5 @@
 ---
 show: true
-width: 3
-date: 2023-01-10T00:01:00+08:00
 ---
 <img data-src="/assets/images/photos/IMG_0301.avif" class="lazy w-100 rounded-xl" src="/assets/images/empty_300x200.png">
 <div class="card-body">

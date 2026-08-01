@@ -1,7 +1,5 @@
 ---
 show: true
-width: 5
-date: 2023-01-12T00:01:00+08:00
 ---
 <div>
   <img data-src="/assets/images/photos/IMG_0047.avif" class="lazy w-100 rounded-xl" src="/assets/images/empty_300x200.png">

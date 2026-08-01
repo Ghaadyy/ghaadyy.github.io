@@ -1,7 +1,5 @@
 ---
 show: true
-width: 5
-date: 2021-09-12T00:01:00+08:00
 height: 295px
 images:
 - src: /assets/images/photos/IMG_8273.avif

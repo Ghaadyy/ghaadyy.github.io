@@ -1,7 +1,5 @@
 ---
 show: true
-width: 3
-date: 2023-01-12T00:01:00+08:00
 height: 400px
 images:
 - src: /assets/images/photos/IMG_0016.avif
